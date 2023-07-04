@@ -9,6 +9,7 @@ import User from './modules/models/users/entities/user.entity';
 import { Post } from './modules/models/posts/entities/post.entity';
 import { AuthModule } from './modules/functions/auth/auth.module';
 import { UsersModule } from './modules/models/users/users.module';
+import { PostsModule } from './modules/models/posts/posts.module';
 
 const DEFAULT_ADMIN = {
   email: 'admin@example.com',
@@ -40,6 +41,7 @@ const authenticate = async (email: string, password: string) => {
     }),
     AuthModule,
     UsersModule,
+    PostsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

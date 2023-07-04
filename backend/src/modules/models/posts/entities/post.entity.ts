@@ -28,10 +28,10 @@ export class Post extends BaseEntity {
   @Column()
   public content: string;
 
-  @Column()
+  @Column({ nullable: true })
   public image: string;
 
-  @Column()
+  @Column({ default: 0 })
   public clicks: number;
 
   // RELATED COLUMNS

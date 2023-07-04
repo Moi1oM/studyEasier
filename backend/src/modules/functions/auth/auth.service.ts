@@ -43,5 +43,6 @@ export class AuthService {
 
     data.password = await bcrypt.hash(data.password, 10);
     await this.usersService.create(data);
+    return data;
   }
 }

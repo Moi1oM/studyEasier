@@ -40,6 +40,9 @@ export class User extends BaseEntity {
   })
   role: Role;
 
+  @Column({ default: false })
+  activated: boolean;
+
   // RELATED COLUMNS
   @OneToMany(() => Post, (post) => post.author, {
     eager: true,

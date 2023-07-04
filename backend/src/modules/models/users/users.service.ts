@@ -27,6 +27,25 @@ export class UsersService {
     return null;
   }
 
+  async userEmailVerify(email: string) {
+    const user: User = await this.getByEmail(email);
+    user.activated = true;
+    await this.usersRepository.save(user);
+    return user.name;
+  }
+
+  async getAll() {
+    return await this.usersRepository.find();
+  }
+
+  async getAllUserEmailsAndName(): Promise<any[]> {
+    const users = await this.usersRepository.find();
+    const newDatas = users.map((u) => {
+      return { email: u.email, name: u.name };
+    });
+    return newDatas;
+  }
+
   update(id: number, updateUserDto: UpdateUserDto) {
     return this.usersRepository.update(id, updateUserDto);
   }
